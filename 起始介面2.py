@@ -30,7 +30,7 @@ class Button():
 		pg.draw.rect(screen, self.color, (self.x,self.y,self.width,self.height),0)
         
 		if self.text != '':
-			font = pg.font.Font('C:\\Windows\\Fonts\\kaiu.ttf', 18)
+			font = pg.font.Font('C:\\Windows\\Fonts\\kaiu.ttf', 24)
 			text = font.render(self.text, 1, (0,0,0))
 			screen.blit(text, (self.x + (self.width/2 - text.get_width()/2), self.y + (self.height/2 - text.get_height()/2)))
 
@@ -46,10 +46,6 @@ class Button():
 
 	def get_text(self):
 		return str(self.text)
-		
-	def change_place(self,change_x,change_y):
-		self.x = change_x
-		self.y = change_y
 
 def show_text(text, x, y):
 	x = x 
@@ -105,96 +101,68 @@ run2 = True
 but_me = Button((176,224,230), 400 , 10, 50 , 40 , u"我")
 but_see = Button((176,224,230), 400 , 60, 50 , 40 , u"檢視")
 but_stone = Button((176,224,230), 400 , 110, 50 , 40 , u"大石頭")
-but_combine = Button((176,224,230), 400 , 160, 50 , 40 , u"結合")
-but_move = Button((176,224,230), 400 , 210, 50 , 40 , u"移動到")
-but_rub = Button((176,224,230), 400 , 260, 50 , 40 , u"摩擦")
+but_combine = Button((176,224,230), 400 , 160, 50 , 40 , u"大石頭")
+but_move = Button((176,224,230), 400 , 210, 50 , 40 , u"大石頭")
 '''
-but_room = Button((176,224,230), 400 , 160, 50 , 40 , u"房間")
-but_table = Button((176,224,230), 400 , 160, 50 , 40 , u"桌子")
-but_bat = Button((176,224,230), 400 , 160, 50 , 40 , u"木棒")
-but_metal = Button((176,224,230), 400 , 160, 50 , 40 , u"金屬")
+but_rub = Button((176,224,230), 400 , 160, 50 , 40 , u"大石頭")
+but_room = Button((176,224,230), 400 , 160, 50 , 40 , u"大石頭")
+but_table = Button((176,224,230), 400 , 160, 50 , 40 , u"大石頭")
+but_bat = Button((176,224,230), 400 , 160, 50 , 40 , u"大石頭")
+but_metal = Button((176,224,230), 400 , 160, 50 , 40 , u"大石頭")
 '''
 
-i = 0
+
 while run2:
-	show_text(u'"我"在冰冷的地板上醒來，"檢視"四周，發現似乎被關在一個被"大石頭"堵住的"洞穴"裡。',50,300)
-	show_text(u'洞穴外傳來，此起彼落的尖叫聲"結合"怒吼。',50,350)
-	show_text(u'我"移動到"洞穴口的大石頭旁，從石縫中往外看見一群食人族正在攻擊受傷的同伴，並啃食他們的斷肢，牙齒與骨頭的“摩擦”聲令人毛骨悚然.....',50,400)
+	show_text(u'"我"在冰冷的地板上醒來，"檢視"四周，發現似乎被關在一個被"大石頭"堵住的"洞穴"裡。',80,50)
+	show_text(u'洞穴外傳來，此起彼落的尖叫聲洞穴外傳來，此起彼落的尖叫聲"結合"怒吼。',80,70)
+	show_text(u'我"移動到"洞穴口的大石頭旁，從石縫中往外看見一群食人族正在攻擊受傷的同伴，並啃食他們的斷肢，牙齒與骨頭的“摩擦”聲令人毛骨悚然.....',80,90)
 	but_me .redraw()
 	but_see.redraw()
 	but_stone.redraw()
 	but_combine.redraw()
 	but_move.redraw()
-	but_rub.redraw()
 	pg.display.update()
-	
-	x1, y1 = 50 ,70
-	x2,y2 = 170 ,70
-	x3,y3 = 280 ,70
-	
-	if i == 0:
-			x,y = 50 ,70
-	elif i == 1:
-			x,y = 170 ,70
-	else: 
-			x,y = 280 ,70
-			
-	
+	'''
 	for event in pg.event.get():
 		pos = pg.mouse.get_pos()
-		
-		
 		if event.type == pg.MOUSEBUTTONDOWN:
-		
-			if but_me.isOver(pos):
-				#show_text(but_me.get_text(), 50 , 70)
-				but_me.change_place(x,y)
-				i += 1
-			if but_see.isOver(pos):
-				#show_text(but_see.get_text(), 120 , 100)
-				but_see.change_place(x,y)
-				i += 1
-			if but_stone.isOver(pos):
-				#show_text(but_stone.get_text() , 160, 100)
-				but_stone.change_place(x,y)
-				i += 1
-			if but_rub.isOver(pos):
-				but_rub.change_place(x,y)
-				i += 1
-				
+			
+			if button2.isOver(pos):
+				show_text(button2.get_text(), 100 , 200)
+			if button3.isOver(pos):
+				show_text(button3.get_text(), 250 , 200)
+			if button4.isOver(pos):
+				show_text(button4.get_text() , 400, 200)
+			
 				
 		if event.type == pg.MOUSEMOTION:
 	
-			if but_me.isOver(pos):
-				but_me.color = (255,165 ,0)
-				but_me.draw(bg, (0,0,0))
+			if button2.isOver(pos):
+				button2.color = (255,165 ,0)
+				button2.draw(bg, (0,0,0))
 			else:
-				but_me.color = (176, 224 ,230)
-			if but_see.isOver(pos):
-				but_see.color = (255,165 ,0)
-				but_see.draw(bg, (0,0,0))
+				button2.color = (176, 224 ,230)
+			if button3.isOver(pos):
+				button3.color = (255,165 ,0)
+				button3.draw(bg, (0,0,0))
 			else:
-				but_see.color = (176, 224 ,230)
-			if but_stone.isOver(pos):
-				but_stone.color = (255,165 ,0)
-				but_stone.draw(bg, (0,0,0))
+				button3.color = (176, 224 ,230)
+			if button4.isOver(pos):
+				button4.color = (255,165 ,0)
+				button4.draw(bg, (0,0,0))
 			else:
-				but_stone.color = (176, 224 ,230)
-	
-	if i == 3:
-		
-		#要把所有button消掉
-		if but_me.x == x1 and but_me.y == y1 and but_see.x == x2 and but_see.y == y2 and but_stone.x == x3 and but_stone.y == y3:
-			show_text(u"爽", 250, 160)
-		
-
+				button4.color = (176, 224 ,230)
+'''
 screen.blit(bg, (0,0))
 pg.display.update()
 
+print(button2[text])
 
 running = True
 while running:
 	for event in pg.event.get():
 		if event.type == pg.QUIT:
-			running = False	
+			running = False
+			
 pg.quit()                
+
