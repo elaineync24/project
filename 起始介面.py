@@ -30,7 +30,7 @@ class Button():
 		pg.draw.rect(screen, self.color, (self.x,self.y,self.width,self.height),0)
         
 		if self.text != '':
-			font = pg.font.Font('C:\\Windows\\Fonts\\kaiu.ttf', 18)
+			font = pg.font.Font('C:\\Windows\\Fonts\\Ulei00m.ttf', 18)
 			text = font.render(self.text, 1, (0,0,0))
 			screen.blit(text, (self.x + (self.width/2 - text.get_width()/2), self.y + (self.height/2 - text.get_height()/2)))
 
@@ -54,13 +54,13 @@ class Button():
 def show_text(text, x, y):
 	x = x 
 	y = y
-	font = pg.font.Font('C:\\Windows\\Fonts\\kaiu.ttf', 20)
+	font = pg.font.Font('C:\\Windows\\Fonts\\Ulei00m.ttf', 20)
 	text = font.render(text, True, (255,255,255))
 	screen.blit(text, (x,y))
 	pg.display.update
 
 #起始介面
-image = pg.image.load("C:\\Users\\elain\\OneDrive\\Desktop\\商管程式設計\\island.jpg")
+image = pg.image.load("C:\\Users\\E5-572G\\Desktop\\商程project\\island.jpg")
 image.convert()
 image = pg.transform.scale(image, (620, 520))
 bg.blit(image, (0,0))
@@ -93,7 +93,7 @@ pg.display.update()
 
 
 #第一關 (洞穴)
-image2 = pg.image.load("C:\\Users\\elain\\OneDrive\\Desktop\\商管程式設計\\cave.jpg")
+image2 = pg.image.load("C:\\Users\\E5-572G\\Desktop\\商程project\\cave.jpg")
 image2.convert()
 image2 = pg.transform.scale(image2, (620, 520))
 bg.blit(image2, (0,0))
